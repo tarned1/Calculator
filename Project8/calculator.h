@@ -3,6 +3,30 @@ class calculator
 {
 public:
 	calculator();
+
+	//returns the value of help
+	int getHelp()
+	{
+		return help;
+	}
+	
+	//returns the value of help1
+	int getHelp1()
+	{
+		return help1;
+	}
+
+	//gets the value of ans and put it in num
+	int getX()
+	{
+		return (int)ans;
+	}
+	//gets the value of M and put it in num
+	int getM()
+	{
+		return (int)M;
+	}
+	//the function set's a number from in any base (from base 2 to base 9) to base 10
 	int from_base_n_to_10(int n, int base)
 	{
 		int ans = 0, i = 0;
@@ -18,12 +42,16 @@ public:
 		}
 		return ans;
 	}
+
+	//the fuction set's number from base 10 to any base (from base 2 to base 9)
 	int from_base_10_to_base_n(int base, int number)
 	{
 		if (number < base)
 			return number;
 		return from_base_10_to_base_n(base, number / base) * 10 + (number % base);
 	}
+
+	//check if you entered a valid input in the base change fuctions
 	bool check(int base, int number)
 	{
 		bool good = true;
@@ -36,22 +64,20 @@ public:
 		}
 		return good;
 	}
+
+	//save a number the user wants
 	void memory()
 	{
 		M = ans;
 	}
-	void print_memory()
-	{
-		cout << M << endl;
-	}
-	void printX()
-	{
-		cout << ans << endl;
-	}
+
+	//set new value in ans
 	void inputX(int y)
 	{
 		ans = (float)y;
 	}
+
+	//all operators for to numbers (*,/,%,^,+,-) but only for two numbers
 	float xy(char x[], char y[], char opera)
 	{
 		char ch;
@@ -61,8 +87,7 @@ public:
 			help = M;
 		else if (*x < '0' || *x > '9')
 		{
-			cout << "ERROR" << endl;
-			return -1;
+			return 3.142344555464566547567;
 		}
 		else
 		{
@@ -74,11 +99,11 @@ public:
 			help1 = M;
 		else if (*y < '0' || *y > '9')
 		{
-			cout << "ERROR" << endl;
-			return -1;
+			return 3.142344555464566547567;
 		}
 		else
 			help1 = (float)atoi(y);
+
 		switch (opera)
 		{
 		case '+':
@@ -107,12 +132,11 @@ public:
 		}
 		return ans;
 	}
+
 	~calculator();
 
 private:
-	float ans, M;
-	float help, help1;
-	float temp;
+	float ans, M, help, help1, temp;
 };
 
 calculator::calculator()
@@ -121,5 +145,4 @@ calculator::calculator()
 
 calculator::~calculator()
 {
-	cout << "good bay!" << endl;
 }
