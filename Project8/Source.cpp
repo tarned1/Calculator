@@ -1,13 +1,8 @@
 #include<iostream>
 #include<cmath>
-#include "Header.h"
+#include "calculator.h"
 
 using namespace std;
-
-float operator_to_numbers(int, int, char);
-int from_base_n_to_10(int, int);
-int from_base_10_to_base_n(int, int);
-bool check(int, int);
 
 int main()
 {
@@ -49,10 +44,10 @@ int main()
 			cin >> base;
 			cout << "enter the number:" << endl;
 			cin >> number;
-			if (check(base, number))
+			if (f.check(base, number))
 			{
-				cout << from_base_n_to_10(number, base) << endl;
-				f.inputX(from_base_n_to_10(number, base));
+				cout << f.from_base_n_to_10(number, base) << endl;
+				f.inputX(f.from_base_n_to_10(number, base));
 			}
 			else
 				cout << "ERROR" << endl;
@@ -62,8 +57,8 @@ int main()
 			cin >> base;
 			cout << "enter the number:" << endl;
 			cin >> number;
-			cout << from_base_10_to_base_n(base, number) << endl;
-			f.inputX(from_base_10_to_base_n(base, number));
+			cout << f.from_base_10_to_base_n(base, number) << endl;
+			f.inputX(f.from_base_10_to_base_n(base, number));
 			break;
 		case '4':
 			cout << "enter the base of the number:" << endl;
@@ -72,11 +67,11 @@ int main()
 			cin >> base1;
 			cout << "enter the number:" << endl;
 			cin >> number;
-			if (check(base, number))
+			if (f.check(base, number))
 			{
-				number = from_base_n_to_10(number, base);
-				cout << from_base_10_to_base_n(base1, number) << endl;
-				f.inputX(from_base_10_to_base_n(base1, number));
+				number = f.from_base_n_to_10(number, base);
+				cout << f.from_base_10_to_base_n(base1, number) << endl;
+				f.inputX(f.from_base_10_to_base_n(base1, number));
 			}
 			else
 				cout << "ERROR" << endl;
@@ -93,37 +88,4 @@ int main()
 		system("cls");
 	} while (choise != '0');
 	return 0;
-}
-int from_base_n_to_10(int n, int base)
-{
-	int ans = 0, i = 0;
-	int help = n;
-	while (help > 0)
-	{
-		if (i)
-			ans += (help % 10) * pow(base, i);
-		else
-			ans += help % 10;
-		help /= 10;
-		++i;
-	}
-	return ans;
-}
-int from_base_10_to_base_n(int base, int number)
-{
-	if (number < base)
-		return number;
-	return from_base_10_to_base_n(base, number / base) * 10 + (number % base);
-}
-bool check(int base, int number)
-{
-	bool good = true;
-	int n = number;
-	while (n)
-	{
-		if (n % 10 > base)
-			good = false;
-		n /= 10;
-	}
-	return good;
 }

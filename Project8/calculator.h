@@ -3,6 +3,39 @@ class calculator
 {
 public:
 	calculator();
+	int from_base_n_to_10(int n, int base)
+	{
+		int ans = 0, i = 0;
+		int help = n;
+		while (help > 0)
+		{
+			if (i)
+				ans += (help % 10) * pow(base, i);
+			else
+				ans += help % 10;
+			help /= 10;
+			++i;
+		}
+		return ans;
+	}
+	int from_base_10_to_base_n(int base, int number)
+	{
+		if (number < base)
+			return number;
+		return from_base_10_to_base_n(base, number / base) * 10 + (number % base);
+	}
+	bool check(int base, int number)
+	{
+		bool good = true;
+		int n = number;
+		while (n)
+		{
+			if (n % 10 > base)
+				good = false;
+			n /= 10;
+		}
+		return good;
+	}
 	void memory()
 	{
 		M = ans;
