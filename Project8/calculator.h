@@ -42,13 +42,13 @@ public:
 			cout << "no answer!!" << endl;
 	}
 	//returns the value of help
-	int getHelp()
+	double getHelp()
 	{
 		return help;
 	}
 	
 	//returns the value of help1
-	int getHelp1()
+	double getHelp1()
 	{
 		return help1;
 	}
@@ -128,7 +128,7 @@ public:
 		}
 		else
 		{
-			help = (float)atoi(x);
+			help = atof(x);
 		}
 		if (!strcmp("ans", y))
 			help1 = ans;
@@ -139,7 +139,7 @@ public:
 			return 3.142344555464566547567;
 		}
 		else
-			help1 = (float)atoi(y);
+			help1 = atof(y);
 
 		switch (opera)
 		{
@@ -176,7 +176,7 @@ public:
 	~calculator();
 
 private:
-	float ans, M, help, help1, temp;
+	double ans, M, help, help1, temp;
 };
 
 calculator::calculator()
