@@ -42,7 +42,9 @@ int main()
 			cin >> Toperator;
 			cout << "enter the second number of the quistion:" << endl;
 			cin >> y;
-			if (f.xy(x, y, Toperator) != 3.142344555464566547567)
+			if (Toperator == '@')
+				cout << x << Toperator << '=' << f.xy(x, y, Toperator) << endl;
+			else if (f.xy(x, y, Toperator) != 3.142344555464566547567)
 			{
 				cout << f.getHelp() << Toperator << f.getHelp1() << '=';
 				cout << f.xy(x, y, Toperator) << endl;

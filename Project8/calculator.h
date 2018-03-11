@@ -8,11 +8,38 @@ public:
 
 	void we_will_see(double dx, double x, double in)
 	{
+		double ans1 = 0;
+		double ans2 = 0;
 		double discreminanta = sqrt(x * x - 4 * in * dx);
-		double ans1 = ((-x) + discreminanta) / (2 * dx);
-		double ans2 = ((-x) - discreminanta) / (2 * dx);
-		cout << "answer1 : " << ans1 << endl;
-		cout << "answer2 : " << ans2 << endl;
+		if (discreminanta > 0 && dx)
+		{
+			ans1 = ((-x) + discreminanta) / (2 * dx);
+			ans2 = ((-x) - discreminanta) / (2 * dx);
+			cout << "answer1 : " << ans1 << endl;
+			cout << "answer2 : " << ans2 << endl;
+		}
+		else if (discreminanta == 0 && dx)
+		{
+			ans1 = ((-x) + discreminanta) / (2 * dx);
+			cout << "answer : " << ans1 << endl;
+		}
+		else if (dx == 0)
+		{
+			if (x > 0)
+			{
+				ans1 = (-in) / (x);
+				cout << "answer : " << ans1 << endl;
+			}
+			else if (x < 0)
+			{
+				ans1 = (in) / (-x);
+				cout << "answer : " << ans1 << endl;
+			}
+			else
+				cout << "all numbers is the answer!" << endl;
+		}
+		else
+			cout << "no answer!!" << endl;
 	}
 	//returns the value of help
 	int getHelp()
@@ -136,6 +163,9 @@ public:
 			for (int i = 1; i < help1; ++i)
 				help *= temp;
 			ans = help;
+			break;
+		case '@':
+			ans = sqrt(help);
 			break;
 		default:
 			break;
