@@ -9,6 +9,7 @@ int main()
 	calculator f;
 	char choise;
 	int base1, number, base;
+	double dx, xn, n;
 	char x[25], y[25];
 	char Toperator;
 	f.inputX(0);
@@ -21,6 +22,7 @@ int main()
 			<< "3 to set number from base 10 to anthuor base \n"
 			<< "4 to set number from one base to anouther \n"
 			<< "5 for M \n"
+			<< "6 for ???\n"
 			<< "0 to exit \n";
 		cout << "ans = " << f.getX() << endl;
 		cout << "memory = " << f.getM() << endl;
@@ -109,6 +111,15 @@ int main()
 		case '5':
 			f.memory();
 			cout << "ans had saved!" << endl;
+			break;
+		case '6':
+			cout << "       x ^ 2 * ";
+			cin >> dx;
+			cout << "        + x * ";
+			cin >> xn;
+			cout << "          + ";
+			cin >> n;
+			f.we_will_see(dx, xn, n);
 			break;
 		default:
 			cout << "ERROR" << endl;

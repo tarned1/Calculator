@@ -1,9 +1,19 @@
 #pragma once
+#include<iostream>
+using namespace std;
 class calculator
 {
 public:
 	calculator();
 
+	void we_will_see(double dx, double x, double in)
+	{
+		double discreminanta = sqrt(x * x - 4 * in * dx);
+		double ans1 = ((-x) + discreminanta) / (2 * dx);
+		double ans2 = ((-x) - discreminanta) / (2 * dx);
+		cout << "answer1 : " << ans1 << endl;
+		cout << "answer2 : " << ans2 << endl;
+	}
 	//returns the value of help
 	int getHelp()
 	{
