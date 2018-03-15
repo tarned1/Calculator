@@ -9,8 +9,8 @@ int main()
 	calculator f;
 	char choise;
 	int base1, number, base;
-	double dx, xn, n;
-	char x[25], y[25];
+	char dx[50], xn[50], n[50];
+	char x[50], y[50];
 	char Toperator;
 	f.inputX(0);
 	f.memory();
