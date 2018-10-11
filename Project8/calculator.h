@@ -4,100 +4,25 @@ using namespace std;
 class calculator
 {
 public:
-	calculator();
+	void we_will_see(char* dc, char* xc, char* inc);
 
-	void we_will_see(char* dc, char* xc, char* inc)
-	{
-		if (check_input(dc) && check_input(xc) && check_input(inc))
-		{
-			double dx = atof(dc), x = atof(xc), in = atof(inc);
-			double ans1 = 0;
-			double ans2 = 0;
-			double discreminanta = sqrt(x * x - 4 * in * dx);
-			if (discreminanta > 0 && dx)
-			{
-				ans1 = ((-x) + discreminanta) / (2 * dx);
-				ans2 = ((-x) - discreminanta) / (2 * dx);
-				cout << "answer1 : " << ans1 << endl;
-				cout << "answer2 : " << ans2 << endl;
-			}
-			else if (discreminanta == 0 && dx)
-			{
-				ans1 = ((-x) + discreminanta) / (2 * dx);
-				cout << "answer : " << ans1 << endl;
-			}
-			else if (dx == 0)
-			{
-				if (x > 0)
-				{
-					ans1 = (-in) / (x);
-					cout << "answer : " << ans1 << endl;
-				}
-				else if (x < 0)
-				{
-					ans1 = (in) / (-x);
-					cout << "answer : " << ans1 << endl;
-				}
-				else
-					cout << "all numbers is the answer!" << endl;
-			}
-			else
-				cout << "no answer!!" << endl;
-		}
-		else
-			cout << "ERROR!" << endl;
-	}
 	//returns the value of help
-	double getHelp()
-	{
-		return help;
-	}
-	
+	double getHelp();
+
 	//returns the value of help1
-	double getHelp1()
-	{
-		return help1;
-	}
+	double getHelp1();
 
 	//gets the value of ans and put it in num
-	int getX()
-	{
-		return (int)ans;
-	}
+	int getX();
+
 	//gets the value of M and put it in num
-	int getM()
-	{
-		return (int)M;
-	}
+	int getM();
+
 	//the function set's a number from in any base (from base 2 to base 9) to base 10
-	double from_base_n_to_10(int n, int base)
-	{
-		int i = 0;
-		int help = n;
-		while (help > 0)
-		{
-			if (i)
-				ans += (help % 10) * pow(base, i);
-			else
-				ans += help % 10;
-			help /= 10;
-			++i;
-		}
-		return ans;
-	}
-	
-	bool check(int base, int number)
-	{
-		bool good = true;
-		int n = number;
-		while (n)
-		{
-			if (n % 10 > base)
-				good = false;
-			n /= 10;
-		}
-		return good;
-	}
+	double from_base_n_to_10(int n, int base);
+
+	bool check(int base, int number);
+
 	//the fuction set's number from base 10 to any base (from base 2 to base 9)
 	int from_base_10_to_base_n(int base, int number)
 	{
@@ -190,10 +115,93 @@ private:
 	}
 };
 
-calculator::calculator()
+void calculator::we_will_see(char* dc, char* xc, char* inc)
 {
+	if (check_input(dc) && check_input(xc) && check_input(inc))
+	{
+		double dx = atof(dc), x = atof(xc), in = atof(inc);
+		double ans1 = 0;
+		double ans2 = 0;
+		double discreminanta = sqrt(x * x - 4 * in * dx);
+		if (discreminanta > 0 && dx)
+		{
+			ans1 = ((-x) + discreminanta) / (2 * dx);
+			ans2 = ((-x) - discreminanta) / (2 * dx);
+			cout << "answer1 : " << ans1 << endl;
+			cout << "answer2 : " << ans2 << endl;
+		}
+		else if (discreminanta == 0 && dx)
+		{
+			ans1 = ((-x) + discreminanta) / (2 * dx);
+			cout << "answer : " << ans1 << endl;
+		}
+		else if (dx == 0)
+		{
+			if (x > 0)
+			{
+				ans1 = (-in) / (x);
+				cout << "answer : " << ans1 << endl;
+			}
+			else if (x < 0)
+			{
+				ans1 = (in) / (-x);
+				cout << "answer : " << ans1 << endl;
+			}
+			else
+				cout << "all numbers is the answer!" << endl;
+		}
+		else
+			cout << "no answer!!" << endl;
+	}
+	else
+		cout << "ERROR!" << endl;
 }
 
-calculator::~calculator()
+double calculator::getHelp()
 {
+	return help;
+}
+
+double calculator:: getHelp1()
+{
+	return help1;
+}
+
+int calculator::getX()
+{
+	return (int)ans;
+}
+
+int calculator::getM()
+{
+	return (int)M;
+}
+
+double calculator::from_base_n_to_10(int n, int base)
+{
+	int i = 0;
+	int help = n;
+	while (help > 0)
+	{
+		if (i)
+			ans += (help % 10) * pow(base, i);
+		else
+			ans += help % 10;
+		help /= 10;
+		++i;
+	}
+	return ans;
+}
+
+bool calculator::check(int base, int number)
+{
+	bool good = true;
+	int n = number;
+	while (n)
+	{
+		if (n % 10 > base)
+			good = false;
+		n /= 10;
+	}
+	return good;
 }
